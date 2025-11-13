@@ -13,7 +13,7 @@ app.layout = dmc.MantineProvider(
     children = dmc.Container(
         [
 
-            dmc.Title("Pink Morsel Sales Trend: Before & After Price Increase (Jan 15, 2021)", order = 2, ta = "center", my = 20, className="header-title"),
+            dmc.Title("Pink Morsel Sales Trend: Before & After Price Increase (Jan 15, 2021)", order = 2, ta = "center", my = 20, className="header-title", id="header-title"),
 
             dmc.Grid([
 
@@ -24,11 +24,13 @@ app.layout = dmc.MantineProvider(
                     label="Choose Regions",
                     size="sm",
                     mt=10,
-                ))
+                )),
+                dmc.GridCol(
+                    dcc.Graph(id='sales-graph'),
+                    id='graph-wrapper',
+                    span=12
+                )
             ]),
-
-            dmc.Space(h=30),
-            dcc.Graph(id = "sales-graph"),
         ],
         fluid = True
     )
